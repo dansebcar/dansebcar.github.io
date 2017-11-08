@@ -1,0 +1,14 @@
+<html lang="en">
+  <head>
+    <title>{{ page.title }}</title>
+    <meta name="description" content="{{ page.description }}">
+
+    <link rel="stylesheet" href="/css/main.css">
+    {% for file in page.css %}
+      <link rel="stylesheet" href="/css/{{ file }}.css">
+    {% endfor %}
+  </head>
+  <body>
+    {{ content }}
+  </body>
+</html>
