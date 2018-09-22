@@ -10,12 +10,25 @@
   </head>
   <body>
     <div id="app">
-      <h1>{{ jekyll.environment }}</h1>
+      <header>
+        <a href="/">
+          Home
+        </a>
+        <a href="/about">
+          About
+        </a>
+      </header>
       {{ content }}
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    {% if jekyll.environment == 'development' %}
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    {% else %}
+      <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    {% endif %}
+
     <script type="module" src="/js/main.js"></script>
+
     {% for file in page.js %}
       <script type="module" src="/js/{{ file }}.js"></script>
     {% endfor %}
