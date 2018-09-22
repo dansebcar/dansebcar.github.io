@@ -1,0 +1,17 @@
+email: dansebcar@gmail.com
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      title: Dan Carpenter
+      description: >-
+        Dan Carpenter is a web developer working for testxchange in Berlin, Germany
+      css: []
+      js: []
+
+url: "https://dansebcar.github.io"
+github_username:  dansebcar
+
+markdown: kramdown
