@@ -1,16 +1,20 @@
 ---
 ---
 
-em {
-  font-style: unset;
-}
-
 h3 {
+  em {
+    font-style: unset;
+  }
+
   :first-child {
-    color: red;
+    color: grey;
+  }
+
+  :first-child::after {
+    content: ': ';
   }
 
   :last-child {
-    color: blue;
+    font-style: italic;
   }
 }
