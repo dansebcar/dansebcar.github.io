@@ -1,0 +1,26 @@
+---
+---
+
+.img-map {
+  position: relative;
+  object-fit: contain;
+  width: 600px;
+
+  &__map {
+    width: 100%;
+  }
+
+  &__point {
+    position: absolute;
+
+    font-size: 30px;
+
+    color: white;
+  }
+
+  canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

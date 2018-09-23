@@ -27,10 +27,10 @@
       <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     {% endif %}
 
-    <script type="module" src="/js/main.js"></script>
-
     {% for file in page.js %}
       <script type="module" src="/js/{{ file }}.js"></script>
     {% endfor %}
+
+    <script type="module" src="/js/index.js"></script>
   </body>
 </html>
