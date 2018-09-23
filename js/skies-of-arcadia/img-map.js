@@ -30,8 +30,8 @@ function vectorCls({width = 1, height = 1} = {}, max = 1) {
       while (true) {
         let min = 0, indexOfMin = -1;
 
-        for (let i = 0; i < Vector.maps.length; i++) {
-          const test = Vector.maps[i].getK(b);
+        for (let i = 0; i < Vector.boundaryConditions.length; i++) {
+          const test = Vector.boundaryConditions[i].getK(b);
 
           if (test < min) {
             min = test;
@@ -43,7 +43,7 @@ function vectorCls({width = 1, height = 1} = {}, max = 1) {
           break;
         }
 
-        const {getK, getC, move} = Vector.maps[indexOfMin];
+        const {getK, getC, move} = Vector.boundaryConditions[indexOfMin];
         const k = getK(a);
         const m = (b.y - a.y) / (b.x - a.x);
 
@@ -68,7 +68,7 @@ function vectorCls({width = 1, height = 1} = {}, max = 1) {
     }
   }
 
-  const maps = [{
+  const boundaryConditions = [{
     getK: v => v.y,
     getC: (a, k, m) => [a.x - k / m, 0],
     move: v => v.y += 1,
@@ -86,8 +86,26 @@ function vectorCls({width = 1, height = 1} = {}, max = 1) {
     move: v => v.x += 1,
   }];
 
-  return Object.assign(Vector, {width, height, max, maps});
+  return Object.assign(Vector, {width, height, max, boundaryConditions});
 }
+
+Vue.component('disco-box', {
+  props: {
+    disco: {type: Object},
+  },
+  template: `
+    <div
+      v-if="disco"
+      :class="$bem()"
+    >
+      <h3
+        :class="$bem('name')"
+      >
+        {{ disco.index }}. {{ disco.name }}
+      </h3>
+    </div>
+  `,
+});
 
 Vue.component('img-map', {
   props: ['src', 'href'],
@@ -98,22 +116,27 @@ Vue.component('img-map', {
         :class="$bem('map')"
         ref="map"
       >
-      <span
-        v-for="point in data"
-        :class="$bem('point')"
-        :style="point.style"
-      >
-        {{ point.index }}
-      </span>
       <canvas
         ref="canvas"
       ></canvas>
+      <span
+        v-for="disco in discos"
+        :class="[$bem('point'), disco.path ? $bem('point', 'path') : '']"
+        :style="disco.point.style"
+        @click="onClick(disco)"
+      >
+        {{ disco.index }}
+      </span>
+      <disco-box
+        :disco="activeDisco"
+      ></disco-box>
     </div>
   `,
   data() {
     return {
       Vector: {},
-      data: [],
+      activeDisco: null,
+      discos: [],
     };
   },
   mounted() {
@@ -140,27 +163,29 @@ Vue.component('img-map', {
         this.drawLine(v1, v2);
       }
     },
-    handle(data) {
-      let nv = k => new this.Vector(k);
+    handle(discos) {
+      this.discos = [];
 
-      for (let i = 0; i < data.length; i++) {
-        let item = data[i];
+      const nv = k => new this.Vector(k);
 
-        if (Array.isArray(item)) {
-          let path = item.map(nv);
-          this.drawPath(path);
+      for (let i = 0; i < discos.length; i++) {
+        let disco = {};
+        let path = discos[i].path;
 
-          item = Object.assign(nv(item[0]), {path});
-        } else {
-          item = nv(item);
+        if (path) {
+          disco.path = path.map(nv);
+          this.drawPath(disco.path);
         }
 
-        item.index = i;
+        disco.point = nv(discos[i]);
 
-        data[i] = item;
+        disco.index = i + 1;
+
+        this.discos[i] = disco;
       }
-
-      this.data = data;
+    },
+    onClick(disco) {
+      this.activeDisco = disco;
     },
     onMapLoad(event) {
       this.Vector = vectorCls(event.target);
@@ -171,6 +196,6 @@ Vue.component('img-map', {
       fetch(this.href)
         .then(response => response.json())
         .then(this.handle);
-    }
+    },
   },
 });
