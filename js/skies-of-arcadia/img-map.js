@@ -16,8 +16,8 @@ function vectorCls({width = 1, height = 1} = {}, max = 1) {
     }
     get style() {
       return {
-        top: percent(this.x),
-        left: percent(this.y),
+        top: percent(this.y),
+        left: percent(this.x),
       };
     }
     static from(array) {
