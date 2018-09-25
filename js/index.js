@@ -1,3 +1,5 @@
+import './header-item.js';
+
 Vue.prototype.$bem = function(element = '', modifier = '') {
   let name = this.$options.name;
 
