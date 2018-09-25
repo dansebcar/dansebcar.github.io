@@ -4,8 +4,13 @@ function percent(x) {
 
 function vectorCls({width = 1, height = 1} = {}, max = 1) {
   class Vector {
-    constructor({x = 0, y = 0} = {}) {
-      [this.x, this.y] = [x, y];
+    constructor({x = 0, y = 0, z = 'm'} = {}) {
+      this.x = x;
+      this.y = y;
+      this.z = z;
+    }
+    get altitude() {
+      return `${Vector.altitudeDict[this.z]} sky`;
     }
     get floor() {
       const f = k => Math.floor(k / Vector.max);
@@ -86,8 +91,66 @@ function vectorCls({width = 1, height = 1} = {}, max = 1) {
     move: v => v.x += 1,
   }];
 
-  return Object.assign(Vector, {width, height, max, boundaryConditions});
+  const altitudeDict = {
+    'h': 'Upper',
+    'l': 'Lower',
+    'm': 'Central',
+  };
+
+  return Object.assign(Vector, {
+    width,
+    height,
+    max,
+    boundaryConditions,
+    altitudeDict,
+  });
 }
+
+Vue.component('disco-box', {
+  props: ['disco', 'index'],
+  template: `
+    <div
+      :class="[$bem(), expanded ? $bem('', 'expanded') : '']"
+      :style="disco.point.style"
+      @click="expanded = !expanded"
+    >
+      <span
+        v-if="!expanded"
+        :class="$bem('point')"
+        :title="disco.name"
+      >
+        {{ index }}
+      </span>
+      <div
+        v-else
+        :class="$bem('tip')"
+      >
+        <span :class="$bem('tip-title')">{{ index }}. {{ disco.name }}</span>
+        <span :class="$bem('tip-note')">{{ note }}</span>
+        <a :href="disco.href">Wiki</a>
+      </div>
+    </div>
+  `,
+  data() {
+    return {
+      expanded: false,
+    };
+  },
+  computed: {
+    note() {
+      const d = this.disco;
+      let s = `${d.point.altitude}`;
+
+      if (d.path) {
+        s += ` moving`;
+      }
+
+      s += ` (${d.both ? 'both games' : 'legends exclusive'})`;
+
+      return s;
+    },
+  },
+});
 
 Vue.component('img-map', {
   props: ['src', 'href'],
@@ -101,15 +164,13 @@ Vue.component('img-map', {
       <canvas
         ref="canvas"
       ></canvas>
-      <a
+      <disco-box
         v-for="(disco, index) in discos"
-        :class="[$bem('point'), disco.path ? $bem('point', 'path') : '']"
-        :href="disco.href"
-        :style="disco.point.style"
-        :title="disco.name"
+        :disco="disco"
+        :index="index + 1"
+        :key="index + 1"
       >
-        {{ index + 1 }}
-      </a>
+      </disco-box>
     </div>
   `,
   data() {
@@ -122,6 +183,12 @@ Vue.component('img-map', {
     this.$refs.map.addEventListener('load', this.onMapLoad);
   },
   methods: {
+    clearPoint(v, size = 0.035) {
+      const ctx = this.$refs.canvas.getContext('2d');
+      const x = this.Vector.from([size, size]);
+
+      ctx.clearRect(...v.sub(x.mult(0.5)).scaledArray, ...x.scaledArray);
+    },
     drawLine(a, b, style = 'white', width = 1.5) {
       const ctx = this.$refs.canvas.getContext('2d');
       ctx.strokeStyle = style;
@@ -146,13 +213,14 @@ Vue.component('img-map', {
       const nv = k => new this.Vector(k);
 
       for (const disco of discos) {
+        disco.point = nv(disco.point);
+
         if (disco.path) {
           let path = disco.path.map(nv);
           disco.path = path;
           this.drawPath(path);
+          this.clearPoint(disco.point);
         }
-
-        disco.point = nv(disco.point);
       }
 
       this.discos = discos;
