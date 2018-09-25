@@ -4,6 +4,8 @@
 @import url('https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css');
 
 body {
+  margin: 0;
+
   background-color: #f6f6f6;
 
   font-family: "Computer Modern Sans", sans-serif;
@@ -21,6 +23,9 @@ body {
 
 header {
   grid-area: header;
+  padding: 20px;
+
+  background-color: #ccc;
 }
 
 #content {
@@ -31,4 +36,8 @@ header {
 
 footer {
   grid-area: footer;
+}
+
+.header-item {
+  margin: 5px 20px;
 }
