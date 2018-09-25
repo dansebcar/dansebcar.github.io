@@ -24,8 +24,11 @@ body {
 header {
   grid-area: header;
   padding: 20px;
+  position: fixed;
+  width: 100%;
 
-  background-color: #ccc;
+  background-color: #eee;
+  border-bottom: 1px solid #aaa;
 }
 
 #content {

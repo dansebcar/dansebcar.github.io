@@ -1,8 +1,10 @@
 ---
-title: About
+title: About me | Daniel Carpenter
 css:
   - about
 ---
+
+# About me
 
 ## Employment
 

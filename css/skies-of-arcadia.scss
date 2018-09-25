@@ -12,6 +12,7 @@
 
   &__point {
     position: absolute;
+    text-decoration: none;
     transform: translate(-50%, -50%);
 
     font-size: 20px;
@@ -24,8 +25,4 @@
     left: 0;
     top: 0;
   }
-}
-
-.disco-box {
-  position: fixed;
 }

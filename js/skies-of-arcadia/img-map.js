@@ -89,24 +89,6 @@ function vectorCls({width = 1, height = 1} = {}, max = 1) {
   return Object.assign(Vector, {width, height, max, boundaryConditions});
 }
 
-Vue.component('disco-box', {
-  props: {
-    disco: {type: Object},
-  },
-  template: `
-    <div
-      v-if="disco"
-      :class="$bem()"
-    >
-      <h3
-        :class="$bem('name')"
-      >
-        {{ disco.index }}. {{ disco.name }}
-      </h3>
-    </div>
-  `,
-});
-
 Vue.component('img-map', {
   props: ['src', 'href'],
   template: `
@@ -119,23 +101,20 @@ Vue.component('img-map', {
       <canvas
         ref="canvas"
       ></canvas>
-      <span
-        v-for="disco in discos"
+      <a
+        v-for="(disco, index) in discos"
         :class="[$bem('point'), disco.path ? $bem('point', 'path') : '']"
+        :href="disco.href"
         :style="disco.point.style"
-        @click="onClick(disco)"
+        :title="disco.name"
       >
-        {{ disco.index }}
-      </span>
-      <disco-box
-        :disco="activeDisco"
-      ></disco-box>
+        {{ index + 1 }}
+      </a>
     </div>
   `,
   data() {
     return {
       Vector: {},
-      activeDisco: null,
       discos: [],
     };
   },
@@ -164,28 +143,19 @@ Vue.component('img-map', {
       }
     },
     handle(discos) {
-      this.discos = [];
-
       const nv = k => new this.Vector(k);
 
-      for (let i = 0; i < discos.length; i++) {
-        let disco = {};
-        let path = discos[i].path;
-
-        if (path) {
-          disco.path = path.map(nv);
-          this.drawPath(disco.path);
+      for (const disco of discos) {
+        if (disco.path) {
+          let path = disco.path.map(nv);
+          disco.path = path;
+          this.drawPath(path);
         }
 
-        disco.point = nv(discos[i]);
-
-        disco.index = i + 1;
-
-        this.discos[i] = disco;
+        disco.point = nv(disco.point);
       }
-    },
-    onClick(disco) {
-      this.activeDisco = disco;
+
+      this.discos = discos;
     },
     onMapLoad(event) {
       this.Vector = vectorCls(event.target);
