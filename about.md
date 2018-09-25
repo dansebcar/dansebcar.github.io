@@ -80,12 +80,6 @@ M Burman, D Carpenter \& RL Jack, 2017. _Emergence of Particle Clusters in a One
 - Displayed my creative skills guiding up to 50 of my peers towards a shared goal with a tight deadline
 - Required good leadership and collaborative skills to efficiently run rehearsals
 
-## Additional Skills & Qualifications
-
-Computing | Proficient with Office, HTML, Latex, Maple, C, C++ and C#
-Driving | Full UK driving licence
-Languages | English (native speaker), French (B2 on CEF) and German (basic)
-
 ## Leisure Interests
 
 Musicals, choral and solo singing, playing piano and trombone, and drama.
