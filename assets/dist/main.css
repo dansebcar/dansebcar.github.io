@@ -1,0 +1,51 @@
+
+.HeaderItem[data-v-56193d70] {
+  margin: 5px 20px;
+}
+
+
+.DiscoBox[data-v-7ebd14be] {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  cursor: pointer;
+}
+.DiscoBox.expanded[data-v-7ebd14be] {
+    z-index: 1;
+}
+.point[data-v-7ebd14be] {
+  font-size: 20px;
+  color: white;
+}
+.tip[data-v-7ebd14be] {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+  background-color: white;
+  border: 1px solid black;
+}
+.tip-title[data-v-7ebd14be] {
+  white-space: nowrap;
+}
+.tip-note[data-v-7ebd14be] {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+
+.ImgMap[data-v-c01ae76e] {
+  position: relative;
+  object-fit: contain;
+  user-select: none;
+  width: 600px;
+}
+.paths[data-v-c01ae76e] {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.map[data-v-c01ae76e] {
+  width: 100%;
+}
+

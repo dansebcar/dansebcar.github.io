@@ -6,7 +6,7 @@ defaults:
     values:
       layout: default
       title: Dan Carpenter
-      description: >-
+      description: >
         Dan Carpenter is a web developer working for testxchange in Berlin, Germany
       css: []
       js: []
@@ -15,3 +15,6 @@ url: "https://dansebcar.github.io"
 github_username:  dansebcar
 
 markdown: kramdown
+
+exclude:
+  - assets/node_modules

@@ -20,7 +20,6 @@ body {
     "footer footer footer";
 }
 
-
 header {
   grid-area: header;
   padding: 20px;
@@ -42,6 +41,15 @@ footer {
   grid-area: footer;
 }
 
-.header-item {
-  margin: 5px 20px;
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+figcaption {
+  margin-top: 20px;
+  max-width: 500px;
+
+  text-align: center;
 }
