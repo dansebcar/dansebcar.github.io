@@ -1,1 +1,0 @@
-import './img-map.js';
