@@ -54,7 +54,6 @@ export default {
 </template>
 
 <style scoped lang="scss">
-
 .DiscoBox {
   position: absolute;
   transform: translate(-50%, -50%);

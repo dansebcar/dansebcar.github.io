@@ -1,0 +1,9 @@
+@import "shadow";
+
+$gray-1: #f6f6f6;
+$gray-2: #eee;
+$gray-3: #aaa;
+
+@function color-1($lightness: 50%) {
+  @return hsl(270, 100%, $lightness);
+}

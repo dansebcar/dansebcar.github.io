@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<div id="app">
+  {{ content }}
+</div>
+
+{% if jekyll.environment == 'development' %}
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+{% else %}
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+{% endif %}
+
+<script src="/assets/dist/main.js"></script>

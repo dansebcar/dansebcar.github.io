@@ -6,15 +6,20 @@ defaults:
     values:
       layout: default
       title: Dan Carpenter
-      description: >
-        Dan Carpenter is a web developer working for testxchange in Berlin, Germany
+      description:
+        I'm Dan Carpenter, a full-stack web developer working for testXchange GmbH in Berlin, Germany. My favourite tools are Django, Postgres and Vue.
+      hero: false
       css: []
       js: []
 
-url: "https://dansebcar.github.io"
+url: "https://dansebcar.github.io/"
 github_username:  dansebcar
 
 markdown: kramdown
 
 exclude:
   - assets/node_modules
+
+kramdown:
+  input: GFM
+  syntax_highlighter: pygments
