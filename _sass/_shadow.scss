@@ -25,14 +25,16 @@
 @mixin shadow-lr($size: 15px) {
   position: relative;
 
-  &::before {
-    @include _shadow-lr(-$size, $size);
-    left: -$size;
-  }
-
-  &::after {
-    @include _shadow-lr($size, $size);
-    right: -$size;
+  @media (min-width: $bp-l) {
+    &::before {
+      @include _shadow-lr(-$size, $size);
+      left: -$size;
+    }
+  
+    &::after {
+      @include _shadow-lr($size, $size);
+      right: -$size;
+    }
   }
 }
 

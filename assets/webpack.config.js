@@ -30,6 +30,7 @@ module.exports = {
   resolve: {
     alias: {
       utils: path.resolve(__dirname, "src/utils/"),
+      sass: path.resolve(__dirname, "src/sass/"),
     },
   },
   plugins: [

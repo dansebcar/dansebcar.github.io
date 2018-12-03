@@ -96,11 +96,13 @@ export default {
 </template>
 
 <style scoped lang="scss">
+@import "sass/vars.scss";
+
 .ImgMap {
   position: relative;
   object-fit: contain;
   user-select: none;
-  width: 600px;
+  max-width: $bp;
 }
 
 .paths {

@@ -35,13 +35,13 @@ export default {
     :style="disco.point.style"
     @click="expanded = !expanded"
   >
-    <span
+    <button
       v-if="!expanded"
       class="point"
       :title="disco.name"
     >
       {{ index }}
-    </span>
+    </button>
     <div
       v-else
       class="tip"
@@ -54,6 +54,8 @@ export default {
 </template>
 
 <style scoped lang="scss">
+@import "sass/vars.scss";
+
 .DiscoBox {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -68,9 +70,16 @@ export default {
 }
 
 .point {
-  font-size: 20px;
+  font-size: 1em;
+
+  @media (min-width: $bp) {
+    font-size: 1.4em;
+  }
 
   color: white;
+  background: unset;
+  border: unset;
+  cursor: inherit;
 }
 
 .tip {
