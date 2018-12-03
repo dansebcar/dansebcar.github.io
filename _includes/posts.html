@@ -1,0 +1,13 @@
+<ul class="posts">
+  {% for post in site.posts %}
+    <li class="post">
+      <a
+        class="post-title"
+        href="{{ post.url }}"
+      >{{ post.title }}</a>
+      <p class="post__excerpt">
+        {{ post.excerpt | strip_html }}
+      </p>
+    </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,11 @@
+@import "vars";
+
+.posts {
+  margin: 0;
+  padding: 15px;
+
+  background-color: $gray-1;
+  border: 1px solid $gray-2;
+
+  list-style-type: none;
+}

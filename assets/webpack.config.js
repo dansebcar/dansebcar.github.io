@@ -5,7 +5,7 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
   mode: "production",
-  entry: "./src/index.js",
+  entry: "./src/skies.js",
   output: {
     path: path.resolve(__dirname, "dist"),
   },

@@ -1,0 +1,15 @@
+$light: color-1(80%);
+
+.hero {
+  grid-area: hero;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15em;
+
+  background: linear-gradient(300deg, $light, color-1(), $light);
+
+  &__title {
+    color: white;
+  }
+}

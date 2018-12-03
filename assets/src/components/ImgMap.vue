@@ -1,4 +1,5 @@
 <script>
+import discos from "utils/discoveries.json";
 import DiscoBox from "./DiscoBox.vue";
 import vectorCls from "utils/vector.js";
 
@@ -8,12 +9,11 @@ export default {
   },
   props: {
     src: {type: String, required: true},
-    href: {type: String, required: true},
   },
   data() {
     return {
       Vector: {},
-      discos: [],
+      discos,
     };
   },
   mounted() {
@@ -47,9 +47,17 @@ export default {
       }
     },
     handle(discos) {
+
+    },
+    onMapLoad(event) {
+      this.Vector = vectorCls(event.target);
+      const c = this.$refs.canvas;
+
+      [c.width, c.height] = [this.Vector.width, this.Vector.height];
+
       const nv = k => new this.Vector(k);
 
-      for (const disco of discos) {
+      for (const disco of this.discos) {
         disco.point = nv(disco.point);
 
         if (disco.path) {
@@ -61,16 +69,6 @@ export default {
       }
 
       this.discos = discos;
-    },
-    onMapLoad(event) {
-      this.Vector = vectorCls(event.target);
-      const c = this.$refs.canvas;
-
-      [c.width, c.height] = [this.Vector.width, this.Vector.height];
-
-      fetch(this.href)
-        .then(response => response.json())
-        .then(this.handle);
     },
   },
 };
