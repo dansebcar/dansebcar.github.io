@@ -9,8 +9,16 @@
     z-index: 1;
 }
 .point[data-v-7ebd14be] {
-  font-size: 20px;
+  font-size: 1em;
   color: white;
+  background: unset;
+  border: unset;
+  cursor: inherit;
+}
+@media (min-width: 600px) {
+.point[data-v-7ebd14be] {
+      font-size: 1.4em;
+}
 }
 .tip[data-v-7ebd14be] {
   align-items: center;
@@ -33,7 +41,7 @@
   position: relative;
   object-fit: contain;
   user-select: none;
-  width: 600px;
+  max-width: 600px;
 }
 .paths[data-v-c01ae76e] {
   position: absolute;

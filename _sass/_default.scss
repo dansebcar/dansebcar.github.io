@@ -1,6 +1,8 @@
+@import "vars";
+
 #content {
   &__inner {
-    max-width: 800px;
+    max-width: $bp-m;
     padding: 10px;
     margin: auto;
   }
