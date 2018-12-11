@@ -4,15 +4,31 @@
   @include shadow-b();
 
   grid-area: nav;
-  padding: 20px;
   position: sticky;
   top: 0;
   z-index: 10;
+
+  display: flex;
+  padding: 20px;
+  justify-content: space-around;
+  align-items: center;
 
   background-color: $gray-2;
   border-bottom: 1px solid $gray-3;
 
   &__link {
-    margin: 5px 20px;
+    padding: 2px 10px;
+
+    text-decoration: none;
+    color: black;
+    background-color: $gray-2;
+    border: 2px solid $gray-3;
+    border-radius: 5px;
+
+    &[data-active] {
+      color: $gray-1;
+      background-color: $color-2;
+      border-color: $color-3;
+    }
   }
 }

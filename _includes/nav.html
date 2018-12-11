@@ -1,14 +1,9 @@
 <nav class="nav">
-  <a
-    class="nav__link"
-    href="/"
-  >Home</a>
-  <a
-    class="nav__link"
-    href="/about"
-  >About</a>
-  <a
-    class="nav__link"
-    href="/skies-of-arcadia/"
-  >Skies of Arcadia</a>
+  {% for link in site.data.nav %}
+    <a
+      class="nav__link"
+      href="{{ link.href }}"
+      {% if page.url == link.href %}data-active{% endif %}
+    >{{ link.name }}</a>
+  {% endfor %}
 </nav>
