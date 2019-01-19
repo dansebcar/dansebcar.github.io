@@ -4,10 +4,10 @@ const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
-  mode: "production",
-  entry: "./src/skies.js",
-  output: {
-    path: path.resolve(__dirname, "dist"),
+  mode: "development",
+  entry: {
+    pokemon: "./src/pokemon/main.js",
+    'skies-of-arcadia': "./src/skies-of-arcadia/main.js",
   },
   module: {
     rules: [
@@ -23,18 +23,32 @@ module.exports = {
           {
             loader: "sass-loader",
           },
-        ]
-      }
+        ],
+      },
+      {
+        test: /\.yaml$/,
+        use: "js-yaml-loader",
+      },
     ],
   },
   resolve: {
     alias: {
-      utils: path.resolve(__dirname, "src/utils/"),
+      components: path.resolve(__dirname, "src/components/"),
       sass: path.resolve(__dirname, "src/sass/"),
+      utils: path.resolve(__dirname, "src/utils/"),
     },
+  },
+  output: {
+    filename: "[name].js",
+    path: path.resolve(__dirname, "dist"),
   },
   plugins: [
     new VueLoaderPlugin(),
     new MiniCSSExtractPlugin(),
   ],
+  externals: {
+    vue: 'Vue',
+  },
+  watch: true,
+  stats: 'minimal',
 };

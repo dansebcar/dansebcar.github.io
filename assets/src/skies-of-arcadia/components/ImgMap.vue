@@ -1,5 +1,5 @@
 <script>
-import discos from "utils/discoveries.json";
+import discos from "../discoveries.yaml";
 import DiscoBox from "./DiscoBox.vue";
 import vectorCls from "utils/vector.js";
 

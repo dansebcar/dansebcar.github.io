@@ -1,0 +1,41 @@
+
+.TypeChartIcon[data-v-0332ee46] {
+  color: white;
+}
+.isSelected[data-v-0332ee46] {
+  font-weight: bold;
+}
+.isListening[data-v-0332ee46] {
+  cursor: pointer;
+}
+
+
+.TypeChartTitle[data-v-b6c397b8] {
+  display: flex;
+}
+
+
+
+h1 {
+  margin: 0; }
+
+h2 {
+  margin: 0; }
+
+h3 {
+  margin: 0; }
+
+h4 {
+  margin: 0; }
+
+h5 {
+  margin: 0; }
+
+h6 {
+  margin: 0; }
+
+ul {
+  margin: unset;
+  padding: unset;
+  list-style-type: none; }
+

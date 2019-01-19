@@ -4,4 +4,4 @@ hero: true
 
 {{ page.description }}
 
-{% include posts.html %}
+{% include list.html items=site.posts %}

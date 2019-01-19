@@ -1,7 +1,6 @@
 ---
 title: About me | Daniel Carpenter
-css:
-  - about
+css: about
 ---
 
 # About me

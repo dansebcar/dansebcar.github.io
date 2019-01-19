@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/assets/dist/main.css">
 
-    {% for file in page.css %}
-      <link rel="stylesheet" href="/css/{{ file }}.css">
-    {% endfor %}
+    {% if page.css %}
+      <link rel="stylesheet" href="/css/{{ page.css }}.css">
+    {% endif %}
+
+    {% if page.vue %}
+      <link rel="stylesheet" href="/assets/dist/{{ page.vue }}.css">
+    {% endif %}
 
     <link
       rel="icon"
@@ -29,5 +32,15 @@
     </main>
 
     {% include footer.html %}
+
+    {% if page.vue %}
+      {% if jekyll.environment == 'development' %}
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      {% else %}
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+      {% endif %}
+
+      <script src="/assets/dist/{{ page.vue }}.js"></script>
+    {% endif %}
   </body>
 </html>

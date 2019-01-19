@@ -1,0 +1,11 @@
+@for $index from 1 through 6 {
+  h#{$index} {
+    margin: 0;
+  }
+}
+
+ul {
+  margin: unset;
+  padding: unset;
+  list-style-type: none;
+}

@@ -1,0 +1,220 @@
+# factors: https://bulbapedia.bulbagarden.net/wiki/Type#Type_chart
+# colors: http://www.epidemicjohto.com/t882-type-colors-hex-colors
+
+normal:
+  color: 'A8A77A'
+  factors:
+    6:
+    - rock
+    - steel
+    0:
+    - ghost
+fight:
+  color: 'C22E28'
+  factors:
+    20:
+    - normal
+    - rock
+    - steel
+    - ice
+    - dark
+    6:
+    - flying
+    - poison
+    - bug
+    - psychic
+    - fairy
+    0:
+    - ghost
+flying:
+  color: 'A98FF3'
+  factors:
+    20:
+    - fight
+    - bug
+    - grass
+    6:
+    - rock
+    - steel
+    - electric
+poison:
+  color: 'A33EA1'
+  factors:
+    20:
+    - grass
+    - fairy
+    6:
+    - poison
+    - ground
+    - rock
+    - ghost
+    0:
+    - steel
+ground:
+  color: 'E2BF65'
+  factors:
+    20:
+    - poison
+    - rock
+    - steel
+    - fire
+    - electric
+    6:
+    - bug
+    - grass
+    0:
+    - flying
+rock:
+  color: 'B6A136'
+  factors:
+    20:
+    - flying
+    - bug
+    - fire
+    - ice
+    6:
+    - fight
+    - ground
+    - steel
+bug:
+  color: 'A6B91A'
+  factors:
+    20:
+    - grass
+    - psychic
+    - dark
+    6:
+    - fight
+    - flying
+    - poison
+    - ghost
+    - steel
+    - fire
+    - fairy
+ghost:
+  color: '735797'
+  factors:
+    20:
+    - ghost
+    - psychic
+    6:
+    - dark
+    0:
+    - normal
+steel:
+  color: 'B7B7CE'
+  factors:
+    20:
+    - rock
+    - ice
+    - fairy
+    6:
+    - steel
+    - fire
+    - water
+    - electric
+fire:
+  color: 'EE8130'
+  factors:
+    20:
+    - bug
+    - steel
+    - grass
+    - ice
+    6:
+    - rock
+    - fire
+    - water
+    - dragon
+water:
+  color: '6390F0'
+  factors:
+    20:
+    - ground
+    - rock
+    - fire
+    6:
+    - water
+    - grass
+    - dragon
+grass:
+  color: '7AC74C'
+  factors:
+    20:
+    - ground
+    - rock
+    - water
+    6:
+    - flying
+    - poison
+    - bug
+    - steel
+    - fire
+    - grass
+    - dragon
+electric:
+  color: 'F7D02C'
+  factors:
+    20:
+    - flying
+    - water
+    6:
+    - grass
+    - electric
+    - dragon
+    0:
+    - ground
+psychic:
+  color: 'F95587'
+  factors:
+    20:
+    - fight
+    - poison
+    6:
+    - steel
+    - psychic
+    0:
+    - dark
+ice:
+  color: '96D9D6'
+  factors:
+    20:
+    - flying
+    - ground
+    - grass
+    - dragon
+    6:
+    - steel
+    - fire
+    - water
+    - ice
+dragon:
+  color: '6F35FC'
+  factors:
+    20:
+    - dragon
+    6:
+    - steel
+    0:
+    - fairy
+dark:
+  color: '705746'
+  factors:
+    20:
+    - ghost
+    - psychic
+    6:
+    - fight
+    - dark
+    - fairy
+fairy:
+  color: 'D685AD'
+  factors:
+    20:
+    - fight
+    - dragon
+    - dark
+    6:
+    - poison
+    - steel
+    - fire
