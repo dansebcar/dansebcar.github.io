@@ -4,4 +4,4 @@ hero: true
 
 {{ page.description }}
 
-{% include list.html items=site.posts %}
+{% comment %}{% include list.html items=site.posts %}{% endcomment %}
