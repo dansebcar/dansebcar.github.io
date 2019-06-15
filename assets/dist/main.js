@@ -211,15 +211,15 @@ eval("__webpack_require__.r(__webpack_exports__);\n\n/* harmony default export *
 
 /***/ }),
 
-/***/ "../node_modules/vue-loader/lib/index.js?!./src/pokemon/components/App.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************!*\
-  !*** ../node_modules/vue-loader/lib??vue-loader-options!./src/pokemon/components/App.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************/
+/***/ "../node_modules/vue-loader/lib/index.js?!./src/pokemon/components/Pokemon.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************!*\
+  !*** ../node_modules/vue-loader/lib??vue-loader-options!./src/pokemon/components/Pokemon.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _types_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../types.yaml */ \"./src/pokemon/types.yaml\");\n/* harmony import */ var _types_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_types_yaml__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var components_TypeChart_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! components/TypeChart.vue */ \"./src/components/TypeChart.vue\");\n\n\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  components: {\n    TypeChart: components_TypeChart_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  },\n  data() {\n    for (const [name, type] of Object.entries(_types_yaml__WEBPACK_IMPORTED_MODULE_0___default.a)) {\n      type.name = name;\n    }\n\n    return {\n      types: (_types_yaml__WEBPACK_IMPORTED_MODULE_0___default()),\n    };\n  },\n});\n\n\n//# sourceURL=webpack:///./src/pokemon/components/App.vue?../node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _types_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../types.yaml */ \"./src/pokemon/types.yaml\");\n/* harmony import */ var _types_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_types_yaml__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var components_TypeChart_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! components/TypeChart.vue */ \"./src/components/TypeChart.vue\");\n\n\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  components: {\n    TypeChart: components_TypeChart_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  },\n  data() {\n    for (const [name, type] of Object.entries(_types_yaml__WEBPACK_IMPORTED_MODULE_0___default.a)) {\n      type.name = name;\n    }\n\n    return {\n      types: (_types_yaml__WEBPACK_IMPORTED_MODULE_0___default()),\n    };\n  },\n});\n\n\n//# sourceURL=webpack:///./src/pokemon/components/Pokemon.vue?../node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -244,6 +244,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n\n/* harmony default export *
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _discoveries_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../discoveries.yaml */ \"./src/skies-of-arcadia/discoveries.yaml\");\n/* harmony import */ var _discoveries_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_discoveries_yaml__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _DiscoBox_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DiscoBox.vue */ \"./src/skies-of-arcadia/components/DiscoBox.vue\");\n/* harmony import */ var utils_vector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! utils/vector.js */ \"./src/utils/vector.js\");\n\n\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  components: {\n    DiscoBox: _DiscoBox_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  },\n  props: {\n    src: {type: String, required: true},\n  },\n  data() {\n    return {\n      Vector: {},\n      discos: (_discoveries_yaml__WEBPACK_IMPORTED_MODULE_0___default()),\n    };\n  },\n  mounted() {\n    this.$refs.map.addEventListener('load', this.onMapLoad);\n  },\n  methods: {\n    clearPoint(v, size = 0.035) {\n      const ctx = this.$refs.canvas.getContext('2d');\n      const x = this.Vector.from([size, size]);\n\n      ctx.clearRect(...v.sub(x.mult(0.5)).scaledArray, ...x.scaledArray);\n    },\n    drawLine(a, b, style = 'white', width = 1.5) {\n      const ctx = this.$refs.canvas.getContext('2d');\n      ctx.strokeStyle = style;\n      ctx.lineWidth = width;\n\n      for (const [x, y] of this.Vector.segments(a, b)) {\n        ctx.beginPath();\n        ctx.moveTo(...x.scaledArray);\n        ctx.lineTo(...y.scaledArray);\n        ctx.stroke();\n      }\n    },\n    drawPath(path) {\n      for (let i = 0; i < path.length; i++) {\n        const v1 = path[i];\n        const v2 = path[i + 1] || path[0];\n\n        this.drawLine(v1, v2);\n      }\n    },\n    handle(discos) {\n\n    },\n    onMapLoad(event) {\n      this.Vector = Object(utils_vector_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(event.target);\n      const c = this.$refs.canvas;\n\n      [c.width, c.height] = [this.Vector.width, this.Vector.height];\n\n      const nv = k => new this.Vector(k);\n\n      for (const disco of this.discos) {\n        disco.point = nv(disco.point);\n\n        if (disco.path) {\n          let path = disco.path.map(nv);\n          disco.path = path;\n          this.drawPath(path);\n          this.clearPoint(disco.point);\n        }\n      }\n\n      this.discos = _discoveries_yaml__WEBPACK_IMPORTED_MODULE_0___default.a;\n    },\n  },\n});\n\n\n//# sourceURL=webpack:///./src/skies-of-arcadia/components/ImgMap.vue?../node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "../node_modules/vue-loader/lib/index.js?!./src/skies-of-arcadia/components/SkiesOfArcadia.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************!*\
+  !*** ../node_modules/vue-loader/lib??vue-loader-options!./src/skies-of-arcadia/components/SkiesOfArcadia.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ImgMap_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImgMap.vue */ \"./src/skies-of-arcadia/components/ImgMap.vue\");\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n    components: {\n        ImgMap: _ImgMap_vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n    },\n});\n\n\n//# sourceURL=webpack:///./src/skies-of-arcadia/components/SkiesOfArcadia.vue?../node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -295,15 +307,15 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
-/***/ "../node_modules/vue-loader/lib/loaders/templateLoader.js?!../node_modules/vue-loader/lib/index.js?!./src/pokemon/components/App.vue?vue&type=template&id=46f07d5d&scoped=true&":
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** ../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../node_modules/vue-loader/lib??vue-loader-options!./src/pokemon/components/App.vue?vue&type=template&id=46f07d5d&scoped=true& ***!
-  \*******************************************************************************************************************************************************************************************************************/
+/***/ "../node_modules/vue-loader/lib/loaders/templateLoader.js?!../node_modules/vue-loader/lib/index.js?!./src/pokemon/components/Pokemon.vue?vue&type=template&id=fe1f35e2&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../node_modules/vue-loader/lib??vue-loader-options!./src/pokemon/components/Pokemon.vue?vue&type=template&id=fe1f35e2& ***!
+  \***********************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    [\n      _c(\"h1\", [_vm._v(\"Pokémon\")]),\n      _vm._v(\" \"),\n      _c(\"TypeChart\", { attrs: { types: _vm.types } })\n    ],\n    1\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/pokemon/components/App.vue?../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    [\n      _c(\"h1\", [_vm._v(\"Pokémon\")]),\n      _vm._v(\" \"),\n      _c(\"TypeChart\", { attrs: { types: _vm.types } })\n    ],\n    1\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/pokemon/components/Pokemon.vue?../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -328,6 +340,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticClass: \"ImgMap\" },\n    [\n      _c(\"img\", { ref: \"map\", staticClass: \"map\", attrs: { src: _vm.src } }),\n      _vm._v(\" \"),\n      _c(\"canvas\", { ref: \"canvas\", staticClass: \"paths\" }),\n      _vm._v(\" \"),\n      _vm._l(_vm.discos, function(disco, index) {\n        return _c(\"DiscoBox\", {\n          key: index + 1,\n          attrs: { disco: disco, index: index + 1 }\n        })\n      })\n    ],\n    2\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/skies-of-arcadia/components/ImgMap.vue?../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "../node_modules/vue-loader/lib/loaders/templateLoader.js?!../node_modules/vue-loader/lib/index.js?!./src/skies-of-arcadia/components/SkiesOfArcadia.vue?vue&type=template&id=dc991b42&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../node_modules/vue-loader/lib??vue-loader-options!./src/skies-of-arcadia/components/SkiesOfArcadia.vue?vue&type=template&id=dc991b42& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", [\n    _c(\"h2\", [_vm._v(\"Discoveries Map\")]),\n    _vm._v(\" \"),\n    _c(\n      \"figure\",\n      [_c(\"ImgMap\", { attrs: { src: \"map.png\" } }), _vm._v(\" \"), _vm._m(0)],\n      1\n    )\n  ])\n}\nvar staticRenderFns = [\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"figcaption\", [\n      _vm._v(\n        \"\\n            All discoveries available in Skies of Arcadia (Legends).\\n            Coordinate data by Game Psychotic, names taken from the\\n            \"\n      ),\n      _c(\"a\", { attrs: { href: \"http://skiesofarcadia.wikia.com\" } }, [\n        _vm._v(\"wiki\")\n      ]),\n      _vm._v(\".\\n        \")\n    ])\n  }\n]\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/skies-of-arcadia/components/SkiesOfArcadia.vue?../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -546,39 +570,39 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _pok
 
 /***/ }),
 
-/***/ "./src/pokemon/components/App.vue":
-/*!****************************************!*\
-  !*** ./src/pokemon/components/App.vue ***!
-  \****************************************/
+/***/ "./src/pokemon/components/Pokemon.vue":
+/*!********************************************!*\
+  !*** ./src/pokemon/components/Pokemon.vue ***!
+  \********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _App_vue_vue_type_template_id_46f07d5d_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=46f07d5d&scoped=true& */ \"./src/pokemon/components/App.vue?vue&type=template&id=46f07d5d&scoped=true&\");\n/* harmony import */ var _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js& */ \"./src/pokemon/components/App.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"../node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _App_vue_vue_type_template_id_46f07d5d_scoped_true___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _App_vue_vue_type_template_id_46f07d5d_scoped_true___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  \"46f07d5d\",\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"src/pokemon/components/App.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./src/pokemon/components/App.vue?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Pokemon_vue_vue_type_template_id_fe1f35e2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Pokemon.vue?vue&type=template&id=fe1f35e2& */ \"./src/pokemon/components/Pokemon.vue?vue&type=template&id=fe1f35e2&\");\n/* harmony import */ var _Pokemon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Pokemon.vue?vue&type=script&lang=js& */ \"./src/pokemon/components/Pokemon.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"../node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _Pokemon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _Pokemon_vue_vue_type_template_id_fe1f35e2___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _Pokemon_vue_vue_type_template_id_fe1f35e2___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"src/pokemon/components/Pokemon.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./src/pokemon/components/Pokemon.vue?");
 
 /***/ }),
 
-/***/ "./src/pokemon/components/App.vue?vue&type=script&lang=js&":
-/*!*****************************************************************!*\
-  !*** ./src/pokemon/components/App.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************/
+/***/ "./src/pokemon/components/Pokemon.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./src/pokemon/components/Pokemon.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=script&lang=js& */ \"../node_modules/vue-loader/lib/index.js?!./src/pokemon/components/App.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./src/pokemon/components/App.vue?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_Pokemon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib??vue-loader-options!./Pokemon.vue?vue&type=script&lang=js& */ \"../node_modules/vue-loader/lib/index.js?!./src/pokemon/components/Pokemon.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_Pokemon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./src/pokemon/components/Pokemon.vue?");
 
 /***/ }),
 
-/***/ "./src/pokemon/components/App.vue?vue&type=template&id=46f07d5d&scoped=true&":
-/*!***********************************************************************************!*\
-  !*** ./src/pokemon/components/App.vue?vue&type=template&id=46f07d5d&scoped=true& ***!
-  \***********************************************************************************/
+/***/ "./src/pokemon/components/Pokemon.vue?vue&type=template&id=fe1f35e2&":
+/*!***************************************************************************!*\
+  !*** ./src/pokemon/components/Pokemon.vue?vue&type=template&id=fe1f35e2& ***!
+  \***************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_46f07d5d_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=template&id=46f07d5d&scoped=true& */ \"../node_modules/vue-loader/lib/loaders/templateLoader.js?!../node_modules/vue-loader/lib/index.js?!./src/pokemon/components/App.vue?vue&type=template&id=46f07d5d&scoped=true&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_46f07d5d_scoped_true___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_46f07d5d_scoped_true___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./src/pokemon/components/App.vue?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Pokemon_vue_vue_type_template_id_fe1f35e2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Pokemon.vue?vue&type=template&id=fe1f35e2& */ \"../node_modules/vue-loader/lib/loaders/templateLoader.js?!../node_modules/vue-loader/lib/index.js?!./src/pokemon/components/Pokemon.vue?vue&type=template&id=fe1f35e2&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Pokemon_vue_vue_type_template_id_fe1f35e2___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Pokemon_vue_vue_type_template_id_fe1f35e2___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./src/pokemon/components/Pokemon.vue?");
 
 /***/ }),
 
@@ -590,7 +614,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"../node_modules/vue/dist/vue.runtime.esm.js\");\n/* harmony import */ var _components_App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/App.vue */ \"./src/pokemon/components/App.vue\");\n/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main.scss */ \"./src/pokemon/main.scss\");\n/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_main_scss__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\n\n\nnew vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({el: '#app', render: h => h(_components_App_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"])});\n\n\n//# sourceURL=webpack:///./src/pokemon/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"../node_modules/vue/dist/vue.runtime.esm.js\");\n/* harmony import */ var _components_Pokemon_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Pokemon.vue */ \"./src/pokemon/components/Pokemon.vue\");\n/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main.scss */ \"./src/pokemon/main.scss\");\n/* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_main_scss__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\n\n\nconst el = document.getElementById('pokemon');\n\nconsole.log('y')\n\nif (el) {\n    new vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({el, render: h => h(_components_Pokemon_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"])});\n}\n\n\n//# sourceURL=webpack:///./src/pokemon/index.js?");
 
 /***/ }),
 
@@ -712,6 +736,42 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 
 /***/ }),
 
+/***/ "./src/skies-of-arcadia/components/SkiesOfArcadia.vue":
+/*!************************************************************!*\
+  !*** ./src/skies-of-arcadia/components/SkiesOfArcadia.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _SkiesOfArcadia_vue_vue_type_template_id_dc991b42___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SkiesOfArcadia.vue?vue&type=template&id=dc991b42& */ \"./src/skies-of-arcadia/components/SkiesOfArcadia.vue?vue&type=template&id=dc991b42&\");\n/* harmony import */ var _SkiesOfArcadia_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SkiesOfArcadia.vue?vue&type=script&lang=js& */ \"./src/skies-of-arcadia/components/SkiesOfArcadia.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"../node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _SkiesOfArcadia_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _SkiesOfArcadia_vue_vue_type_template_id_dc991b42___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _SkiesOfArcadia_vue_vue_type_template_id_dc991b42___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"src/skies-of-arcadia/components/SkiesOfArcadia.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./src/skies-of-arcadia/components/SkiesOfArcadia.vue?");
+
+/***/ }),
+
+/***/ "./src/skies-of-arcadia/components/SkiesOfArcadia.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./src/skies-of-arcadia/components/SkiesOfArcadia.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_SkiesOfArcadia_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib??vue-loader-options!./SkiesOfArcadia.vue?vue&type=script&lang=js& */ \"../node_modules/vue-loader/lib/index.js?!./src/skies-of-arcadia/components/SkiesOfArcadia.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_SkiesOfArcadia_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./src/skies-of-arcadia/components/SkiesOfArcadia.vue?");
+
+/***/ }),
+
+/***/ "./src/skies-of-arcadia/components/SkiesOfArcadia.vue?vue&type=template&id=dc991b42&":
+/*!*******************************************************************************************!*\
+  !*** ./src/skies-of-arcadia/components/SkiesOfArcadia.vue?vue&type=template&id=dc991b42& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SkiesOfArcadia_vue_vue_type_template_id_dc991b42___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./SkiesOfArcadia.vue?vue&type=template&id=dc991b42& */ \"../node_modules/vue-loader/lib/loaders/templateLoader.js?!../node_modules/vue-loader/lib/index.js?!./src/skies-of-arcadia/components/SkiesOfArcadia.vue?vue&type=template&id=dc991b42&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SkiesOfArcadia_vue_vue_type_template_id_dc991b42___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SkiesOfArcadia_vue_vue_type_template_id_dc991b42___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./src/skies-of-arcadia/components/SkiesOfArcadia.vue?");
+
+/***/ }),
+
 /***/ "./src/skies-of-arcadia/discoveries.yaml":
 /*!***********************************************!*\
   !*** ./src/skies-of-arcadia/discoveries.yaml ***!
@@ -731,7 +791,7 @@ eval("const doc = [[({\"point\":({\"x\":0.31213872832369943, \"y\":0.61297539149
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_ImgMap_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/ImgMap.vue */ \"./src/skies-of-arcadia/components/ImgMap.vue\");\n\n\nnew Vue({ el: '#app', components: {ImgMap: _components_ImgMap_vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]} });\n\n\n//# sourceURL=webpack:///./src/skies-of-arcadia/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"../node_modules/vue/dist/vue.runtime.esm.js\");\n/* harmony import */ var _components_SkiesOfArcadia_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/SkiesOfArcadia.vue */ \"./src/skies-of-arcadia/components/SkiesOfArcadia.vue\");\n\n\n\n\nconst el = document.getElementById('skies-of-arcadia');\n\nif (el) {\n    new vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({ el, render: h => h(_components_SkiesOfArcadia_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"]) });\n}\n\n\n//# sourceURL=webpack:///./src/skies-of-arcadia/index.js?");
 
 /***/ }),
 

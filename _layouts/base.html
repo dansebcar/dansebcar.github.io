@@ -7,19 +7,8 @@
 
     <link rel="stylesheet" href="/css/main.css">
 
-    {% if page.css %}
-      <link rel="stylesheet" href="/css/{{ page.css }}.css">
-    {% endif %}
-
-    {% if page.vue %}
-      <link rel="stylesheet" href="/assets/dist/{{ page.vue }}.css">
-    {% endif %}
-
-    <link
-      rel="icon"
-      href="/images/favicon.ico"
-      data-url="https://favicon.io/favicon-generator/?t=D&ff=Duru+Sans&fs=130&fc=%23FFF&b=rounded&bc=%238000ff"
-    >
+    {% comment %}https://favicon.io/favicon-generator/?t=D&ff=Duru+Sans&fs=130&fc=%23FFF&b=rounded&bc=%238000ff{% endcomment %}
+    <link rel="icon" href="/images/favicon.ico">
   </head>
   <body>
     {% if page.hero %}
@@ -33,14 +22,8 @@
 
     {% include footer.html %}
 
-    {% if page.vue %}
-      {% if jekyll.environment == 'development' %}
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-      {% else %}
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-      {% endif %}
-
-      <script src="/assets/dist/{{ page.vue }}.js"></script>
+    {% if page.layout == 'js' %}
+      <script src="/assets/dist/main.js"></script>
     {% endif %}
   </body>
 </html>

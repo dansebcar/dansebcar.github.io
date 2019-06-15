@@ -17,7 +17,13 @@ github_username:  dansebcar
 markdown: kramdown
 
 exclude:
-  - node_modules
+  - Dockerfile
+  - docker-compose.yml
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - assets/src
+  - assets/*.config.js
 
 kramdown:
   input: GFM

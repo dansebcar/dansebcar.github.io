@@ -1,7 +1,13 @@
 import Vue from 'vue';
 
-import App from './components/App.vue';
+import Pokemon from './components/Pokemon.vue';
 
 import "./main.scss";
 
-new Vue({el: '#app', render: h => h(App)});
+const el = document.getElementById('pokemon');
+
+console.log('y')
+
+if (el) {
+    new Vue({el, render: h => h(Pokemon)});
+}

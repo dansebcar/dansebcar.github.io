@@ -1,3 +1,9 @@
-import ImgMap from "./components/ImgMap.vue";
+import Vue from 'vue';
 
-new Vue({ el: '#app', components: {ImgMap} });
+import SkiesOfArcadia from "./components/SkiesOfArcadia.vue";
+
+const el = document.getElementById('skies-of-arcadia');
+
+if (el) {
+    new Vue({ el, render: h => h(SkiesOfArcadia) });
+}

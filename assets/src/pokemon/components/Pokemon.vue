@@ -27,6 +27,3 @@ export default {
     />
   </div>
 </template>
-
-<style scoped lang="scss">
-</style>
