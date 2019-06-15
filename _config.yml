@@ -15,6 +15,7 @@ url: https://dansebcar.github.io/
 github_username:  dansebcar
 
 markdown: kramdown
+theme: null
 
 exclude:
   - Dockerfile
