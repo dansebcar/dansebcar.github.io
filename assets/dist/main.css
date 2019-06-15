@@ -1,16 +1,16 @@
-.TypeChartIcon[data-v-0332ee46] {
+.TypeChartIcon[data-v-9c319dfe] {
   font-size: 1.5em;
   margin: 5px;
   color: white;
 }
-.isSelected[data-v-0332ee46] {
+.isSelected[data-v-9c319dfe] {
   font-weight: bold;
 }
-.isListening[data-v-0332ee46] {
+.isListening[data-v-9c319dfe] {
   cursor: pointer;
 }
 
-.TypeChartTitle[data-v-b6c397b8] {
+.TypeChartTitle[data-v-676a1e05] {
   display: flex;
 }
 
@@ -37,16 +37,16 @@ ul {
   padding: unset;
   list-style-type: none; }
 
-.DiscoBox[data-v-26418bce] {
+.DiscoBox[data-v-cb34b9d4] {
   position: absolute;
   transform: translate(-50%, -50%);
   text-align: center;
   cursor: pointer;
 }
-.DiscoBox.expanded[data-v-26418bce] {
+.DiscoBox.expanded[data-v-cb34b9d4] {
     z-index: 1;
 }
-.point[data-v-26418bce] {
+.point[data-v-cb34b9d4] {
   font-size: 1em;
   color: white;
   background: unset;
@@ -54,11 +54,11 @@ ul {
   cursor: inherit;
 }
 @media (min-width: 600px) {
-.point[data-v-26418bce] {
+.point[data-v-cb34b9d4] {
       font-size: 1.4em;
 }
 }
-.tip[data-v-26418bce] {
+.tip[data-v-cb34b9d4] {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -66,26 +66,26 @@ ul {
   background-color: white;
   border: 1px solid black;
 }
-.tip-title[data-v-26418bce] {
+.tip-title[data-v-cb34b9d4] {
   white-space: nowrap;
 }
-.tip-note[data-v-26418bce] {
+.tip-note[data-v-cb34b9d4] {
   margin-bottom: 10px;
   font-size: 15px;
 }
 
-.ImgMap[data-v-4f470ec1] {
+.ImgMap[data-v-6d843bf2] {
   position: relative;
   object-fit: contain;
   user-select: none;
   max-width: 600px;
 }
-.paths[data-v-4f470ec1] {
+.paths[data-v-6d843bf2] {
   position: absolute;
   left: 0;
   top: 0;
 }
-.map[data-v-4f470ec1] {
+.map[data-v-6d843bf2] {
   width: 100%;
 }
 

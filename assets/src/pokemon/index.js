@@ -6,8 +6,6 @@ import "./main.scss";
 
 const el = document.getElementById('pokemon');
 
-console.log('y')
-
 if (el) {
     new Vue({el, render: h => h(Pokemon)});
 }
