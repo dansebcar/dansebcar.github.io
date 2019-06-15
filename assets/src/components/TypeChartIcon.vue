@@ -31,6 +31,9 @@ export default {
 
 <style scoped lang="scss">
 .TypeChartIcon {
+  font-size: 1.5em;
+  margin: 5px;
+
   color: white;
 }
 

@@ -1,0 +1,91 @@
+.TypeChartIcon[data-v-0332ee46] {
+  font-size: 1.5em;
+  margin: 5px;
+  color: white;
+}
+.isSelected[data-v-0332ee46] {
+  font-weight: bold;
+}
+.isListening[data-v-0332ee46] {
+  cursor: pointer;
+}
+
+.TypeChartTitle[data-v-b6c397b8] {
+  display: flex;
+}
+
+h1 {
+  margin: 0; }
+
+h2 {
+  margin: 0; }
+
+h3 {
+  margin: 0; }
+
+h4 {
+  margin: 0; }
+
+h5 {
+  margin: 0; }
+
+h6 {
+  margin: 0; }
+
+ul {
+  margin: unset;
+  padding: unset;
+  list-style-type: none; }
+
+.DiscoBox[data-v-26418bce] {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  cursor: pointer;
+}
+.DiscoBox.expanded[data-v-26418bce] {
+    z-index: 1;
+}
+.point[data-v-26418bce] {
+  font-size: 1em;
+  color: white;
+  background: unset;
+  border: unset;
+  cursor: inherit;
+}
+@media (min-width: 600px) {
+.point[data-v-26418bce] {
+      font-size: 1.4em;
+}
+}
+.tip[data-v-26418bce] {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+  background-color: white;
+  border: 1px solid black;
+}
+.tip-title[data-v-26418bce] {
+  white-space: nowrap;
+}
+.tip-note[data-v-26418bce] {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.ImgMap[data-v-4f470ec1] {
+  position: relative;
+  object-fit: contain;
+  user-select: none;
+  max-width: 600px;
+}
+.paths[data-v-4f470ec1] {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.map[data-v-4f470ec1] {
+  width: 100%;
+}
+

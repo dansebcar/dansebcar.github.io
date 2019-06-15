@@ -4,11 +4,7 @@ const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
-  mode: "development",
-  entry: {
-    pokemon: "./src/pokemon/main.js",
-    'skies-of-arcadia': "./src/skies-of-arcadia/main.js",
-  },
+  mode: process.env.NODE_ENV,
   module: {
     rules: [
       {
@@ -39,16 +35,11 @@ module.exports = {
     },
   },
   output: {
-    filename: "[name].js",
+    filename: "main.js",
     path: path.resolve(__dirname, "dist"),
   },
   plugins: [
     new VueLoaderPlugin(),
     new MiniCSSExtractPlugin(),
   ],
-  externals: {
-    vue: 'Vue',
-  },
-  watch: true,
-  stats: 'minimal',
 };
