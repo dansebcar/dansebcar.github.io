@@ -1,6 +1,6 @@
 #!/bin/bash
 SIZE=$(du assets/dist | awk '{print $1}')
-if (( $SIZE > 200 )); then
+if (( $SIZE > 2000 )); then
     echo "Assets too large"
     exit 1
 fi
