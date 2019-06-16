@@ -1,2 +1,6 @@
-#!/bin/bash -e
-./bin/webpack-build-production
+#!/bin/bash
+SIZE=$(du assets/dist | awk '{print $1}')
+if (( $SIZE > 200 )); then
+    echo "Assets too large"
+    exit 1
+fi
