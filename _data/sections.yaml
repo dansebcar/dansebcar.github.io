@@ -1,0 +1,33 @@
+- title: Skies of Arcadia Utilities
+  url: /skies-of-arcadia/
+  description: >
+    One of my favourite games, Skies of Arcadia released was released in 2000
+    for the Dreamcast. In it, you explore the fantasy world of Arcadia in your
+    flying ship and find 89 discoveries spread across the world map. I've built
+    an interactive map of these to make it easier to find them all!
+- title: Pokémon Utilities
+  url: /pokemon/
+  description: >
+    When playing this beloved franchise, I keep forgetting which type's have the
+    advantage against which others. I find large static charts difficult to
+    interperet, so I made a simpler interface. You pick the type you'd like to
+    know about, and it just shows you the relevant information for that type.
+- title: DCC Offline Dictionary
+  url: https://github.com/dansebcar/dict-cc
+  description: >
+    A Django app intended for offline deployment supporting Sqlite and Postgres
+    backends. On mobile, this is a powerful and fast dictionary with fuzzy-search
+    using a custom trigram index.
+- title: Jira Dashboard
+  url: https://github.com/dansebcar/jira-app
+  description: >
+    A Django app with Vue components which pulls data from the Jira API into
+    a local Postgres database for faster access to issues and an alternative
+    outlook on the data
+- title: This website
+  url: https://github.com/dansebcar/dansebcar.github.io
+  description: >
+    A Github Pages site which uses docker-compose for development to power
+    Jekyll and Node containers. The Node container uses Webpack to transpile
+    Javascript imports, Vue components and Postcss into browser-friendly files.
+    I'm using the Tailwind functional CSS framework.

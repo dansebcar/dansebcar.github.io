@@ -510,12 +510,41 @@ img {
   height: auto;
 }
 
+.bg-blue-400 {
+  background-color: #63b3ed;
+}
+
+.hover\:bg-blue-600:hover {
+  background-color: #3182ce;
+}
+
+.cursor-default {
+  cursor: default;
+}
+
 .flex {
   display: flex;
 }
 
 .table {
   display: table;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.m-1 {
+  margin: 0.25rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .absolute {
@@ -526,16 +555,16 @@ img {
   position: relative;
 }
 
-.TypeChartIcon {
-  font-size: 1.5em;
-  margin: 5px;
-  color: white
+.text-center {
+  text-align: center;
 }
-.TypeChartIcon.isSelected {
-  font-weight: bold;
+
+.text-white {
+  color: #fff;
 }
-.TypeChartIcon.isListening {
-  cursor: pointer;
+
+.text-lg {
+  font-size: 1.125rem;
 }
 
 .DiscoBox {

@@ -70,7 +70,9 @@ export default {
 
 <template>
     <div class="TypeChart">
-        <h2>Type chart</h2>
+        <h2
+            class="text-lg font-bold"
+        >Type chart</h2>
         <TypeChartTitle
             :isReversed.sync="isReversed"
         />

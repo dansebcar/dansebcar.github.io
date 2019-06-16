@@ -1,9 +1,0 @@
-<nav class="nav">
-  {% for link in site.data.nav %}
-    <a
-      class="nav__link"
-      href="{{ link.url }}"
-      {% if page.url == link.url %}data-active{% endif %}
-    >{{ link.name }}</a>
-  {% endfor %}
-</nav>

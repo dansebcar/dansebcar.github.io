@@ -21,7 +21,6 @@ export default {
 
 <template>
   <div>
-    <h1>Pokémon</h1>
     <TypeChart
       :types="types"
     />

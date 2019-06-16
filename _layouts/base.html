@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
   <head>
     <title>{{ page.title }}</title>
     <meta name="description" content="{{ page.description | strip }}">
@@ -11,13 +11,10 @@
     {% comment %}https://favicon.io/favicon-generator/?t=D&ff=Duru+Sans&fs=130&fc=%23FFF&b=rounded&bc=%238000ff{% endcomment %}
     <link rel="icon" href="/images/favicon.ico">
   </head>
-  <body>
-    {% if page.hero %}
-      {% include hero.html %}
-    {% endif %}
-    {% include nav.html %}
+  <body class="flex flex-col h-full">
+    {% include header.html %}
 
-    <main id="content">
+    <main class="flex-1">
       {{ content }}
     </main>
 

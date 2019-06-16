@@ -1,0 +1,23 @@
+---
+---
+
+<div class="text-center">
+    <section class="max-w-lg mx-auto">
+        <h1 class="my-8 text-xl font-bold">{{ page.title }}</h1>
+
+        <p>
+            {{ page.description }}
+        </p>
+
+        <p>
+            Feel free to take a look at some of my projects which I've listed
+            below.
+        </p>
+    </section>
+
+    <div id="section-list" class="mb-16">
+        {% for section in site.data.sections %}
+            {% include section.html %}
+        {% endfor %}
+    </div>
+</div>

@@ -1,6 +1,19 @@
 ---
-title: Pokémon | Dan Carpenter
+title: Pokémon
+description: >
+    A handy type interactive type chart. Just click one of the types
+    to view its effectiveness when attacking other types. Alternatively, to
+    understand it's effectiveness as a defending type, click the "reverse"
+    button.
 layout: js
 ---
 
-<div id="pokemon"></div>
+<div class="container mx-auto">
+    <h1 class="text-xl font-bold">Pokémon</h1>
+
+    <p>
+        {{ page.description }}
+    </p>
+
+    <div id="pokemon"></div>
+</div>

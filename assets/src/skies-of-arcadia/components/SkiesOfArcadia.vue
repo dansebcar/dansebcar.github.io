@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <div class="text-center">
         <h2>Discoveries Map</h2>
 
         <figure>

@@ -1,0 +1,10 @@
+<header class="container mx-auto text-right">
+    <nav class="my-2">
+        {% for link in site.data.nav %}
+            <a
+                class="ml-6 font-bold"
+                href="{{ link.url }}"
+            >{{ link.name }}</a>
+        {% endfor %}
+    </nav>
+</header>

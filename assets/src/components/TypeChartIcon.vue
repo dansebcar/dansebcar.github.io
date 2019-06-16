@@ -20,28 +20,14 @@ export default {
 
 <template>
   <button
-    :class="{isSelected, isListening}"
-    :style="{backgroundColor}"
-    class="TypeChartIcon"
+    class="px-2 m-1 text-white"
+    :class="{
+      'font-bold': isSelected,
+      'cursor-default': !isListening,
+    }"
+    :style="{ backgroundColor }"
     @click="$emit('select', name)"
   >
     {{ name }}
   </button>
 </template>
-
-<style>
-.TypeChartIcon {
-  font-size: 1.5em;
-  margin: 5px;
-
-  color: white;
-
-  &.isSelected {
-    font-weight: bold;
-  }
-
-  &.isListening {
-    cursor: pointer;
-  }
-}
-</style>
