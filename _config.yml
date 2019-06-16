@@ -24,6 +24,7 @@ exclude:
   - package*.json
   - assets/src
   - assets/*.config.js
+  - hooks
   - bin
 
 kramdown:
