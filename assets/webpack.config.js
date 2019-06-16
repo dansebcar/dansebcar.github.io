@@ -1,45 +1,43 @@
 const path = require("path");
 
-const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
-  mode: process.env.NODE_ENV,
-  module: {
-    rules: [
-      {
-        test: /\.vue$/,
-        loader: "vue-loader",
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          MiniCSSExtractPlugin.loader,
-          "css-loader",
-          {
-            loader: "sass-loader",
-          },
+    mode: process.env.NODE_ENV,
+    module: {
+        rules: [
+            {
+                test: /\.vue$/,
+                loader: "vue-loader",
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'vue-style-loader',
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'postcss-loader',
+                ],
+            },
+            {
+                test: /\.yaml$/,
+                use: "js-yaml-loader",
+            },
         ],
-      },
-      {
-        test: /\.yaml$/,
-        use: "js-yaml-loader",
-      },
-    ],
-  },
-  resolve: {
-    alias: {
-      components: path.resolve(__dirname, "src/components/"),
-      sass: path.resolve(__dirname, "src/sass/"),
-      utils: path.resolve(__dirname, "src/utils/"),
     },
-  },
-  output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
-  },
-  plugins: [
-    new VueLoaderPlugin(),
-    new MiniCSSExtractPlugin(),
-  ],
+    resolve: {
+        alias: {
+            components: path.resolve(__dirname, "src/components/"),
+            utils: path.resolve(__dirname, "src/utils/"),
+        },
+    },
+    output: {
+        filename: "main.js",
+        path: path.resolve(__dirname, "dist"),
+    },
+    plugins: [
+        new MiniCssExtractPlugin(),
+        new VueLoaderPlugin(),
+    ],
 };

@@ -20,11 +20,11 @@ theme: null
 exclude:
   - Dockerfile
   - docker-compose.yml
-  - Gemfile
-  - Gemfile.lock
-  - package.json
+  - Gemfile*
+  - package*.json
   - assets/src
   - assets/*.config.js
+  - bin
 
 kramdown:
   input: GFM

@@ -4,8 +4,6 @@ export default {
     disco: {type: Object, required: true},
     index: {type: Number, required: true},
   },
-  template: `
-  `,
   data() {
     return {
       expanded: false,
@@ -53,8 +51,7 @@ export default {
   </div>
 </template>
 
-<style scoped lang="scss">
-@import "sass/vars.scss";
+<style>
 
 .DiscoBox {
   position: absolute;
@@ -71,10 +68,6 @@ export default {
 
 .point {
   font-size: 1em;
-
-  @media (min-width: $bp) {
-    font-size: 1.4em;
-  }
 
   color: white;
   background: unset;

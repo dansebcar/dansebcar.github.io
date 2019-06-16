@@ -1,0 +1,3 @@
+#!/bin/bash
+docker cp "$(docker-compose ps -q assets):/code/package.json" .
+docker cp "$(docker-compose ps -q assets):/code/package-lock.json" .

@@ -29,19 +29,19 @@ export default {
   </button>
 </template>
 
-<style scoped lang="scss">
+<style>
 .TypeChartIcon {
   font-size: 1.5em;
   margin: 5px;
 
   color: white;
-}
 
-.isSelected {
-  font-weight: bold;
-}
+  &.isSelected {
+    font-weight: bold;
+  }
 
-.isListening {
-  cursor: pointer;
+  &.isListening {
+    cursor: pointer;
+  }
 }
 </style>
