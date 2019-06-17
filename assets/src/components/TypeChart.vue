@@ -69,7 +69,7 @@ export default {
 <template>
     <div class="TypeChart">
         <h2
-            class="text-lg font-bold"
+            class="mt-8 mb-4 text-lg font-bold"
         >Type chart</h2>
         <h3 class="select-none">
             <input
