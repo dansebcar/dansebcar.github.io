@@ -1,0 +1,2 @@
+#!/bin/bash
+pygmentize -f html -S colorful -a .highlight > assets/src/components/highlight.css
