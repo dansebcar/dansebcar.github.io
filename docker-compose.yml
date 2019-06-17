@@ -12,5 +12,6 @@ services:
         command: npm run watch
         volumes:
             - ./assets:/code/assets
+            - ./_site:/code/site # Ensure PurgeCSS can access site
         environment:
             - NODE_ENV=development
