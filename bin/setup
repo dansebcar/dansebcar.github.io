@@ -1,0 +1,4 @@
+FONTELLO_DIR=images/fontello
+FONTELLO_HOST=http://fontello.com
+
+cd ~/dsc/dansebcar.github.io || exit 1

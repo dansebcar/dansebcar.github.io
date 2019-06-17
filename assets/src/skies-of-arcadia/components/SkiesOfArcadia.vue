@@ -14,7 +14,7 @@ export default {
             class="my-8 text-xl font-bold"
         >Discoveries Map</h2>
 
-        <figure>
+        <figure class="max-w-xl mx-auto">
             <ImgMap
                 src="/images/skies-of-arcadia-map.png"
             />

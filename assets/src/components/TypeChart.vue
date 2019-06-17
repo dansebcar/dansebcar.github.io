@@ -3,13 +3,11 @@ import defaultdict from 'utils/defaultdict.js';
 
 import TypeChartIcon from './TypeChartIcon.vue';
 import TypeChartFactor from './TypeChartFactor.vue';
-import TypeChartTitle from './TypeChartTitle.vue';
 
 export default {
     components: {
         TypeChartIcon,
         TypeChartFactor,
-        TypeChartTitle,
     },
     props: {
         types: Object,
@@ -73,9 +71,19 @@ export default {
         <h2
             class="text-lg font-bold"
         >Type chart</h2>
-        <TypeChartTitle
-            :isReversed.sync="isReversed"
-        />
+        <h3 class="select-none">
+            <input
+                v-model="isReversed"
+                id="reverse"
+                type="checkbox"
+            >
+            <label
+                for="reverse"
+            >
+                {{ title }}
+            </label>
+        </h3>
+
         <TypeChartIcon
             v-for="(type, name) in types"
             :key="name"
@@ -83,13 +91,15 @@ export default {
             :isSelected="name == selected"
             @select="select"
         />
-        <ul>
-            <TypeChartFactor
-                v-for="{value, types} in displayFactors"
-                :key="`${value}-${types.map(k => k.name)}`"
-                :value="value"
-                :types="types"
-            />
-        </ul>
+        <table class="text-left">
+            <tbody>
+                <TypeChartFactor
+                    v-for="{value, types} in displayFactors"
+                    :key="`${value}-${types.map(k => k.name)}`"
+                    :value="value"
+                    :types="types"
+                />
+            </tbody>
+        </table>
     </div>
 </template>

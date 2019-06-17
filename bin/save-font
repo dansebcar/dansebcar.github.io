@@ -1,0 +1,7 @@
+#!/bin/bash
+. "$(dirname $0)/setup"
+rm -rf $FONTELLO_DIR
+curl --output .fontello.zip "$FONTELLO_HOST/$(cat .fontello.key)/get"
+unzip .fontello.zip -d .fontello.src
+mv "$(find .fontello.src -maxdepth 1 -name 'fontello-*')" $FONTELLO_DIR
+rm -rf .fontello.*

@@ -1,0 +1,4 @@
+#!/bin/bash
+. "$(dirname $0)/setup"
+curl --form "config=@assets/fontello.config.json" --output .fontello.key $FONTELLO_HOST
+xdg-open "$FONTELLO_HOST/$(cat .fontello.key)"

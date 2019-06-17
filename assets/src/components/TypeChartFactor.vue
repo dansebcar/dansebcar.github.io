@@ -13,12 +13,16 @@ export default {
 </script>
 
 <template>
-    <li>
-        <h4>{{ value }} &times;</h4>
-        <TypeChartIcon
-            v-for="type in types"
-            :key="type.name"
-            :type="type"
-        />
-    </li>
+    <tr>
+        <th
+            scope="row"
+        >{{ value }} &times;</th>
+        <td>
+            <TypeChartIcon
+                v-for="type in types"
+                :key="type.name"
+                :type="type"
+            />
+        </td>
+    </tr>
 </template>
