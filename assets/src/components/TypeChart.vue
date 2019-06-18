@@ -55,7 +55,7 @@ export default {
             ).sort((a, b) => b.value - a.value);
         },
         title() {
-            return this.isReversed ? 'Select attacking type' : 'Select defending type';
+            return this.isReversed ? 'Select defending type' : 'Select attacking type';
         },
     },
     methods: {

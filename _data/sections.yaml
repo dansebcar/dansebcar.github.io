@@ -8,7 +8,7 @@
 - title: Pokémon Utilities
   url: /pokemon/
   description: >
-    When playing this beloved franchise, I keep forgetting which type's have the
+    When playing this beloved franchise, I keep forgetting which types have the
     advantage against which others. I find large static charts difficult to
     interperet, so I made a simpler interface. You pick the type you'd like to
     know about, and it just shows you the relevant information for that type.
