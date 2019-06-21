@@ -544,20 +544,20 @@ img {
   }
 }
 
-.bg-purple-200 {
-  background-color: #e9d8fd;
+.bg-indigo-200 {
+  background-color: #c3dafe;
 }
 
-.bg-purple-500 {
-  background-color: #9f7aea;
+.bg-indigo-500 {
+  background-color: #667eea;
 }
 
-.hover\:bg-purple-600:hover {
-  background-color: #805ad5;
+.hover\:bg-indigo-600:hover {
+  background-color: #5a67d8;
 }
 
-.border-purple-500 {
-  border-color: #9f7aea;
+.border-indigo-500 {
+  border-color: #667eea;
 }
 
 .border-t-2 {
@@ -759,8 +759,8 @@ img {
   color: #2b6cb0;
 }
 
-.text-purple-900 {
-  color: #44337a;
+.text-indigo-900 {
+  color: #3c366b;
 }
 
 .text-lg {
@@ -974,7 +974,7 @@ img {
 /* Literal.Number.Integer.Long */
 
 .section-list > :nth-child(odd) {
-  background-color: #edf2f7;
+  background-color: #ebf4ff;
 }
 
 @media (min-width: 768px) {

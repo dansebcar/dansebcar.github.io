@@ -16,7 +16,7 @@ export default {
 
         <figure class="max-w-xl mx-auto">
             <ImgMap
-                src="/images/skies-of-arcadia-map.png"
+                src="/images/skies-of-arcadia-map.jpg"
             />
             <figcaption
                 class="my-4"
