@@ -29,13 +29,13 @@ export default {
 <template>
     <div
         :class="{expanded}"
-        class="DiscoBox"
+        class="DiscoBox text-2xs md:text-sm"
         :style="disco.point.style"
         @click="expanded = !expanded"
     >
         <button
             v-if="!expanded"
-            class="point"
+            class="point px-1 hover:bg-indigo-700"
             :title="disco.name"
         >
             {{ index }}
@@ -46,13 +46,15 @@ export default {
         >
             <span class="title">{{ index }}. {{ disco.name }}</span>
             <span class="note">{{ note }}</span>
-            <a :href="disco.href">Wiki</a>
+            <a
+                class="m-2 text-indigo-700"
+                :href="disco.href"
+            >Wiki</a>
         </div>
     </div>
 </template>
 
 <style>
-
 .DiscoBox {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -67,8 +69,6 @@ export default {
 }
 
 .point {
-    font-size: 1em;
-
     color: white;
     background: unset;
     border: unset;
@@ -76,6 +76,7 @@ export default {
 }
 
 .tip {
+    transform: translate(40%, 40%);
     align-items: center;
     display: flex;
     flex-direction: column;

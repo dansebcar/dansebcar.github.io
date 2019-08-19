@@ -46,9 +46,6 @@ export default {
                 this.drawLine(v1, v2);
             }
         },
-        handle(discos) {
-
-        },
         onMapLoad(event) {
             this.Vector = vectorCls(event.target);
             const c = this.$refs.canvas;
@@ -84,19 +81,17 @@ export default {
         <canvas
             ref="canvas"
             class="paths"
-        ></canvas>
+        />
         <DiscoBox
             v-for="(disco, index) in discos"
             :disco="disco"
             :index="index + 1"
             :key="index + 1"
-        >
-        </DiscoBox>
+        />
     </div>
 </template>
 
 <style>
-
 .ImgMap {
     position: relative;
     object-fit: contain;

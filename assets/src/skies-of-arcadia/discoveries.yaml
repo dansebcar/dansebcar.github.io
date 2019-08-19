@@ -461,7 +461,7 @@
 - point:
     x: 0.2697495183044316
     y: 0.5704697986577181
-    z: m
+    z: l
   name: Bottomless Pit
   href: http://skiesofarcadia.wikia.com/wiki/Bottomless_Pit
   both: true
@@ -645,7 +645,7 @@
 - point:
     x: 0.5915221579961464
     y: 0.2348993288590604
-    z: m
+    z: h
   name: Sky Ladder
   href: http://skiesofarcadia.wikia.com/wiki/Sky_Ladder
   both: false

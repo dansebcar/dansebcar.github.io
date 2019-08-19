@@ -23,7 +23,10 @@ export default {
             >
                 All discoveries available in Skies of Arcadia (Legends).
                 Coordinate data by Game Psychotic, names taken from the
-                <a href="http://skiesofarcadia.wikia.com">wiki</a>.
+                <a
+                    class="text-indigo-700"
+                    href="http://skiesofarcadia.wikia.com"
+                >wiki</a>.
             </figcaption>
         </figure>
     </div>

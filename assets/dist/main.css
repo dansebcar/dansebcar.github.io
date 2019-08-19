@@ -556,6 +556,10 @@ img {
   background-color: #5a67d8;
 }
 
+.hover\:bg-indigo-700:hover {
+  background-color: #4c51bf;
+}
+
 .border-indigo-500 {
   border-color: #667eea;
 }
@@ -622,6 +626,10 @@ img {
   margin: 0.25rem;
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -677,6 +685,11 @@ img {
 
 .max-w-xl {
   max-width: 36rem;
+}
+
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 
 .py-2 {
@@ -759,6 +772,10 @@ img {
   color: #2b6cb0;
 }
 
+.text-indigo-700 {
+  color: #4c51bf;
+}
+
 .text-indigo-900 {
   color: #3c366b;
 }
@@ -777,6 +794,10 @@ img {
 
 .text-3xl {
   font-size: 1.875rem;
+}
+
+.text-2xs {
+  font-size: 0.4rem;
 }
 
 .italic {
@@ -982,6 +1003,10 @@ img {
   .md\:flex-row {
     flex-direction: row;
   }
+
+  .md\:text-sm {
+    font-size: 0.875rem;
+  }
 }
 
 .DiscoBox {
@@ -994,13 +1019,13 @@ img {
   z-index: 1;
 }
 .point {
-  font-size: 1em;
   color: white;
   background: unset;
   border: unset;
   cursor: inherit;
 }
 .tip {
+  transform: translate(40%, 40%);
   align-items: center;
   display: flex;
   flex-direction: column;
