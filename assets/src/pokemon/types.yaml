@@ -4,7 +4,7 @@
 normal:
   color: 'A8A77A'
   factors:
-    6:
+    0.5:
     - rock
     - steel
     0:
@@ -12,13 +12,13 @@ normal:
 fight:
   color: 'C22E28'
   factors:
-    20:
+    2:
     - normal
     - rock
     - steel
     - ice
     - dark
-    6:
+    0.5:
     - flying
     - poison
     - bug
@@ -29,21 +29,21 @@ fight:
 flying:
   color: 'A98FF3'
   factors:
-    20:
+    2:
     - fight
     - bug
     - grass
-    6:
+    0.5:
     - rock
     - steel
     - electric
 poison:
   color: 'A33EA1'
   factors:
-    20:
+    2:
     - grass
     - fairy
-    6:
+    0.5:
     - poison
     - ground
     - rock
@@ -53,13 +53,13 @@ poison:
 ground:
   color: 'E2BF65'
   factors:
-    20:
+    2:
     - poison
     - rock
     - steel
     - fire
     - electric
-    6:
+    0.5:
     - bug
     - grass
     0:
@@ -67,23 +67,23 @@ ground:
 rock:
   color: 'B6A136'
   factors:
-    20:
+    2:
     - flying
     - bug
     - fire
     - ice
-    6:
+    0.5:
     - fight
     - ground
     - steel
 bug:
   color: 'A6B91A'
   factors:
-    20:
+    2:
     - grass
     - psychic
     - dark
-    6:
+    0.5:
     - fight
     - flying
     - poison
@@ -94,21 +94,21 @@ bug:
 ghost:
   color: '735797'
   factors:
-    20:
+    2:
     - ghost
     - psychic
-    6:
+    0.5:
     - dark
     0:
     - normal
 steel:
   color: 'B7B7CE'
   factors:
-    20:
+    2:
     - rock
     - ice
     - fairy
-    6:
+    0.5:
     - steel
     - fire
     - water
@@ -116,12 +116,12 @@ steel:
 fire:
   color: 'EE8130'
   factors:
-    20:
+    2:
     - bug
     - steel
     - grass
     - ice
-    6:
+    0.5:
     - rock
     - fire
     - water
@@ -129,22 +129,22 @@ fire:
 water:
   color: '6390F0'
   factors:
-    20:
+    2:
     - ground
     - rock
     - fire
-    6:
+    0.5:
     - water
     - grass
     - dragon
 grass:
   color: '7AC74C'
   factors:
-    20:
+    2:
     - ground
     - rock
     - water
-    6:
+    0.5:
     - flying
     - poison
     - bug
@@ -155,10 +155,10 @@ grass:
 electric:
   color: 'F7D02C'
   factors:
-    20:
+    2:
     - flying
     - water
-    6:
+    0.5:
     - grass
     - electric
     - dragon
@@ -167,10 +167,10 @@ electric:
 psychic:
   color: 'F95587'
   factors:
-    20:
+    2:
     - fight
     - poison
-    6:
+    0.5:
     - steel
     - psychic
     0:
@@ -178,12 +178,12 @@ psychic:
 ice:
   color: '96D9D6'
   factors:
-    20:
+    2:
     - flying
     - ground
     - grass
     - dragon
-    6:
+    0.5:
     - steel
     - fire
     - water
@@ -191,30 +191,30 @@ ice:
 dragon:
   color: '6F35FC'
   factors:
-    20:
+    2:
     - dragon
-    6:
+    0.5:
     - steel
     0:
     - fairy
 dark:
   color: '705746'
   factors:
-    20:
+    2:
     - ghost
     - psychic
-    6:
+    0.5:
     - fight
     - dark
     - fairy
 fairy:
   color: 'D685AD'
   factors:
-    20:
+    2:
     - fight
     - dragon
     - dark
-    6:
+    0.5:
     - poison
     - steel
     - fire

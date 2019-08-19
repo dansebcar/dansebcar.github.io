@@ -8,10 +8,6 @@ export default {
     TypeChart,
   },
   data() {
-    for (const [name, type] of Object.entries(types)) {
-      type.name = name;
-    }
-
     return {
       types,
     };

@@ -1,0 +1,60 @@
+# https://www.reddit.com/r/skiesofarcadia/comments/9o8k1z/definitive_weapon_effectiveness_chart/
+
+green:
+  color: '00FF66'
+  factors:
+    2:
+    - blue
+    1.1:
+    - purple
+    0.9:
+    - red
+    - yellow
+red:
+  color: 'FF3333'
+  factors:
+    1.4:
+    - purple
+    1.1:
+    - green
+    0.7:
+    - red
+    0.5:
+    - blue
+purple:
+  color: '9966FF'
+  factors:
+    2:
+    - blue
+    1.4:
+    - red
+    0.9:
+    - green
+    0.7:
+    - purple
+blue:
+  color: '33CCFF'
+  factors:
+    1.1:
+    - red
+    - yellow
+    0.9:
+    - green
+    - purple
+yellow:
+  color: 'FFFF33'
+  factors:
+    1.1:
+    - green
+    - silver
+    0.9:
+    - yellow
+    0.5:
+    - blue
+silver:
+  color: 'D8D8D8'
+  factors:
+    1.1:
+    - yellow
+    0.9:
+    - silver

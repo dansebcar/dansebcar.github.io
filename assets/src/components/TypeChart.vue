@@ -19,11 +19,20 @@ export default {
         };
     },
     computed: {
+        namedTypes() {
+            const namedTypes = {};
+
+            for (const [name, type] of Object.entries(this.types)) {
+                namedTypes[name] = {name, ...type};
+            }
+
+            return namedTypes;
+        },
         reverseFactorMap() {
             const reverseFactorMap = defaultdict(() => defaultdict(() => []));
 
-            for (const outerName of Object.keys(this.types)) {
-                const {factors} = this.types[outerName];
+            for (const outerName of Object.keys(this.namedTypes)) {
+                const {factors} = this.namedTypes[outerName];
                 for (const [factor, innerNames] of Object.entries(factors)) {
                     for (const innerName of innerNames) {
                         reverseFactorMap[innerName][factor].push(outerName);
@@ -38,7 +47,7 @@ export default {
                 return this.reverseFactorMap[this.selected];
             }
 
-            const type = this.types[this.selected];
+            const type = this.namedTypes[this.selected];
             if (type) {
                 return type.factors;
             }
@@ -48,8 +57,8 @@ export default {
         displayFactors() {
             return Object.entries(this.factors).map(
                 ([value, types]) => {
-                    value = parseInt(value, 12) / 12;
-                    types = types.map(k => this.types[k]);
+                    value = parseFloat(value);
+                    types = types.map(k => this.namedTypes[k]);
                     return {value, types};
                 }
             ).sort((a, b) => b.value - a.value);
@@ -85,10 +94,10 @@ export default {
         </h3>
 
         <TypeChartIcon
-            v-for="(type, name) in types"
-            :key="name"
+            v-for="type in namedTypes"
+            :key="type.name"
             :type="type"
-            :isSelected="name == selected"
+            :isSelected="type.name == selected"
             @select="select"
         />
         <table class="text-left">

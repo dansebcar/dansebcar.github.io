@@ -1,9 +1,18 @@
 <script>
+import types from '../types.yaml';
+
+import TypeChart from 'components/TypeChart.vue';
 import ImgMap from './ImgMap.vue';
 
 export default {
     components: {
         ImgMap,
+        TypeChart,
+    },
+    data() {
+        return {
+            types,
+        };
     },
 };
 </script>
@@ -29,5 +38,9 @@ export default {
                 >wiki</a>.
             </figcaption>
         </figure>
+
+        <TypeChart
+            :types="types"
+        />
     </div>
 </template>
